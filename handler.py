@@ -21,6 +21,20 @@ def start_rds(_event, _context):
 
     return RDSManager().start_rds()
 
+def start_stop_rds(event, _context):
+    '''
+        Handler wrapper for both RDSManager.shutdown_rds and RDSManager.start_rds.
+        Calls one of the two methods, depending on the action in the event.
+    '''
+
+    if event['action'] == 'start':
+        return RDSManager().start_rds()
+
+    if event['action'] == 'stop':
+        return RDSManager().shutdown_rds()
+
+    raise Exception('Unkown action')
+
 
 class RDSManager:
     '''
