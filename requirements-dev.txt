@@ -1,0 +1,4 @@
+# packages for dev, test and deploy of the lambda
+boto3
+pip-tools
+pylint
