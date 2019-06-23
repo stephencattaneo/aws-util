@@ -38,19 +38,19 @@ functions:
     handler: handler.start_stop_rds
     events:
       - schedule:
-        name: shutdown-rds
-        description: 'At 10pm PDT shutdown RDS instances. (AWS is UTC obviously)'
-        # https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html
-        rate: cron(0 5 * * ? *)
-        input:
-          action: stop
+          name: shutdown-rds
+          description: 'At 10pm PDT shutdown RDS instances. (AWS is UTC obviously)'
+          # https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html
+          rate: cron(0 5 * * ? *)
+          input:
+            action: stop
       - schedule:
-        name: start-rds
-        description: 'At 9am PDT start RDS instances. (AWS is UTC obviously)'
-        # https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html
-        rate: cron(0 6 * * ? *)
-        input:
-          action: start
+          name: start-rds
+          description: 'At 9am PDT start RDS instances. (AWS is UTC obviously)'
+          # https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html
+          rate: cron(0 6 * * ? *)
+          input:
+            action: start
 
 plugins:
   - serverless-python-requirements
