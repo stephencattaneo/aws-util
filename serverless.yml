@@ -48,7 +48,7 @@ functions:
           name: start-rds
           description: 'At 9am PDT start RDS instances. (AWS is UTC obviously)'
           # https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html
-          rate: cron(0 6 * * ? *)
+          rate: cron(0 16 * * ? *)
           input:
             action: start
 
